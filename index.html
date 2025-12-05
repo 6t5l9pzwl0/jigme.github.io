@@ -130,7 +130,24 @@
             }
         }
 
-        /* Image Placeholder styling (retained) */
+        /* Hero Image Placeholder */
+        .hero-image-placeholder {
+            height: 20rem; /* Tall enough for a good banner */
+            background-color: #374151; /* Dark gray */
+            color: #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 0.75rem;
+            border: 4px dashed #a78bfa; /* Purple dashed border */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Image Placeholder styling */
         .image-placeholder {
             background-color: #6B46C1; /* Purple background matching the theme */
             color: #E9D8FD; /* Light text */
@@ -144,6 +161,48 @@
             height: 100%;
             min-height: 10rem;
         }
+        
+        /* Custom style for the SVG container to ensure it looks good */
+        .svg-project-icon-container {
+            background-color: #5b21b6; /* darker purple for contrast */
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tide Turners Photo Card Style (New) */
+        .tide-turners-card-img {
+            background: linear-gradient(to bottom right, #34d399, #06b6d4); /* Green to Cyan */
+            border-radius: 0.5rem;
+            height: 8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tide Turners Detail Grid Card Style (New) */
+        .tide-detail-card {
+            background-color: #4b5563; /* slightly lighter gray for detail sub-cards */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            cursor: default;
+        }
+        .tide-detail-card .icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .tide-detail-card .title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #f3f4f6;
+        }
+
 
         /* Generic Layout Helpers */
         .hidden { display: none !important; }
@@ -172,7 +231,7 @@
             <a href="#" class="text-xl font-bold text-purple">Jigme Seldon</a>
             <div class="nav-links">
                 <a href="#home" onclick="showPage('home-page')">Home</a>
-                <a href="#projects" onclick="showPage('projects-page')">Projects</a>
+                <!-- Projects link removed -->
                 <a href="#courses" onclick="showPage('courses-page')">Courses</a>
                 <a href="#activities" onclick="showPage('activities-page')">Activities</a>
                 <a href="#contact">Contact</a>
@@ -184,11 +243,12 @@
 
         <!-- Home Page (Hero Section) -->
         <div id="home-page" class="page">
-            <section id="hero" class="text-center section-bg" style="background-color: #5b21b6; padding: 5rem 2rem;">
+            <section id="hero" class="text-center section-bg" style="background-color: #5b21b6; padding: 3rem 2rem;">
                 <div style="max-width: 48rem; margin: 0 auto;">
-                    <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: white;">Hello, I'm Jigme Seldon</h1>
-                    <!-- Removed the paragraph: "I'm a passionate web developer focused on building beautiful and functional applications." -->
-                    <!-- Removed 'View My Work' Button -->
+                    <!-- Hero Image Placeholder added here -->
+                    <div class="hero-image-placeholder">
+                        <p>Hero Image Placeholder (e.g., A photo of Paro, Bhutan, or a personal achievement)</p>
+                    </div>
                 </div>
             </section>
             
@@ -199,10 +259,14 @@
                     <span>About Me</span>
                 </h2>
                 <div class="flex items-center" style="flex-direction: column; gap: 2rem;">
-                    <!-- Profile Image REPLACED with CSS circle -->
-                    <div class="IMG_20221013_112953.jpg" style="border-color: #374151; background-color: #9333ea; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                        JS
-                    </div>
+                    <!-- Profile Image REPLACED with a placeholder image with the required styles -->
+                    <img 
+                        src="https://placehold.co/144x144/a78bfa/ffffff?text=Jigme%27s+Photo" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/144x144/a78bfa/ffffff?text=Photo+Error';" 
+                        alt="Jigme Seldon Profile Photo" 
+                        class="w-36 h-36 rounded-full border-4" 
+                        style="border-color: #a78bfa; object-fit: cover; box-shadow: 0 0 0 5px #374151;"
+                    >
                     <div style="color: #d1d5db; font-size: 1.125rem;" class="leading-relaxed">
                         <!-- UPDATED BIO CONTENT - Consolidated to remove line breaks -->
                         <p>My name is Jigme Seldon. I am currently studying in the 12th grade at The Royal Academy, Paro, Bhutan.
@@ -222,8 +286,8 @@
                 <div style="position: relative; max-width: 40rem; margin: 0 auto; border-radius: 0.5rem; overflow: hidden;" class="shadow-md">
                     <!-- Image Container (All images REPLACED with CSS placeholders) -->
                     <div id="carousel-images" style="position: relative; width: 100%; height: 24rem;">
-                        <div class="Copy of IMG_20240526_113038.jpg" style="position: absolute; inset: 0; transition: opacity 0.5s; opacity: 1;">Photo 1: The Mountain View</div>
-                        <div class="  " style="position: absolute; inset: 0; transition: opacity 0.5s; opacity: 0;">Photo 2: Coffee Break</div>
+                        <div class="image-placeholder" style="position: absolute; inset: 0; transition: opacity 0.5s; opacity: 1;">Photo 1: The Mountain View</div>
+                        <div class="image-placeholder" style="position: absolute; inset: 0; transition: opacity 0.5s; opacity: 0;">Photo 2: Coffee Break</div>
                         <div class="image-placeholder" style="position: absolute; inset: 0; transition: opacity 0.5s; opacity: 0;">Photo 3: Coding Session</div>
                         <div class="image-placeholder" style="position: absolute; inset: 0; transition: opacity 0.5s; opacity: 0;">Photo 4: Trail Hike</div>
                         <div class="image-placeholder" style="position: absolute; inset: 0; transition: opacity 0.5s; opacity: 0;">Photo 5: Library Reading</div>
@@ -264,56 +328,7 @@
             </section>
         </div>
 
-        <!-- Projects Page -->
-        <div id="projects-page" class="page hidden">
-            <section id="projects" class="section-bg">
-                <h2 class="text-3xl font-bold border-bottom-purple pb-2 mb-6 flex items-center" style="color: #f3f4f6; gap: 0.5rem;">
-                    <span class="text-purple text-3xl" style="margin-right: 0.5rem;">📦</span>
-                    <span>My Projects</span>
-                </h2>
-                <div class="grid-layout grid-md-2 grid-lg-3">
-                    <!-- Project Card 1 (Image REPLACED) -->
-                    <div class="card-bg">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Project Alpha Showcase</div>
-                        <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Project Alpha</h3>
-                        <p style="color: #d1d5db; margin-bottom: 1rem;">A web application for tracking personal fitness goals. Built with React and Node.js.</p>
-                        <div class="flex items-center" style="gap: 1rem; flex-wrap: wrap;">
-                            <a href="#" class="text-purple" style="text-decoration: none;">Learn More &rarr;</a>
-                            <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="flex items-center text-purple" style="gap: 0.25rem; text-decoration: none;">
-                                <span style="font-size: 1rem;">📄</span>
-                                <span>Documentation</span>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Project Card 2 (Image REPLACED) -->
-                    <div class="card-bg">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Project Beta Showcase</div>
-                        <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Project Beta</h3>
-                        <p style="color: #d1d5db; margin-bottom: 1rem;">An e-commerce platform for selling unique vintage goods. Uses a GraphQL API.</p>
-                        <div class="flex items-center" style="gap: 1rem; flex-wrap: wrap;">
-                            <a href="#" class="text-purple" style="text-decoration: none;">Learn More &rarr;</a>
-                            <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="flex items-center text-purple" style="gap: 0.25rem; text-decoration: none;">
-                                <span style="font-size: 1rem;">📄</span>
-                                <span>Documentation</span>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Project Card 3 (Image REPLACED) -->
-                    <div class="card-bg">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Project Gamma Showcase</div>
-                        <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Project Gamma</h3>
-                        <p style="color: #d1d5db; margin-bottom: 1rem;">A simple blog built from scratch using plain HTML, CSS, and JavaScript.</p>
-                        <div class="flex items-center" style="gap: 1rem; flex-wrap: wrap;">
-                            <a href="#" class="text-purple" style="text-decoration: none;">Learn More &rarr;</a>
-                            <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="flex items-center text-purple" style="gap: 0.25rem; text-decoration: none;">
-                                <span style="font-size: 1rem;">📄</span>
-                                <span>Documentation</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <!-- Projects Page REMOVED -->
 
         <!-- Courses & Education Page -->
         <div id="courses-page" class="page hidden">
@@ -396,14 +411,14 @@
                     <span>Activities & Volunteering</span>
                 </h2>
                 <div class="grid-layout grid-md-2">
-                    <!-- Volunteer Web Developer Card -->
+                    <!-- Volunteer Sports Organizer Card (UPDATED FOR SPORTS) -->
                     <div class="card-bg" onclick="showPage('volunteering-page')">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Volunteer Work</div>
-                        <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Volunteer Web Developer</h3>
-                        <p style="color: #d1d5db; margin-bottom: 0.5rem;">Local Nonprofit Organization | 2023</p>
+                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Community Sports Event</div>
+                        <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Volunteer Sports Organizer</h3>
+                        <p style="color: #d1d5db; margin-bottom: 0.5rem;">Youth Sports League | 2023</p>
                         <ul style="color: #d1d5db; padding-left: 1.5rem; list-style-type: disc;">
-                            <li>Developed and maintained the organization's public-facing website.</li>
-                            <li>Improved site performance and implemented new features to enhance user experience.</li>
+                            <li>Organized weekly training sessions and managed logistics for local tournaments.</li>
+                            <li>Fostered teamwork and healthy competition among young athletes.</li>
                         </ul>
                     </div>
                     <!-- Chess Club President Card -->
@@ -416,42 +431,40 @@
                             <li>Managed club finances and increased membership by 30%.</li>
                         </ul>
                     </div>
-                    <!-- Tide Turners Plastic Challenge Card -->
+                    <!-- Tide Turners Plastic Challenge Card (NOW PHOTO FOCUSSED) -->
                     <div class="card-bg" onclick="showPage('tideturners-page')">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Tide Turners Challenge</div>
-                        <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Tide Turners Plastic Challenge</h3>
-                        <p style="color: #d1d5db; margin-bottom: 0.5rem;">11th Grade Participation</p>
-                        <ul style="color: #d1d5db; padding-left: 1.5rem; list-style-type: disc;">
-                            <li>Capacity building to tackle plastic pollution.</li>
-                            <li>Raised awareness and fostered community engagement.</li>
-                            <li>Collected 8 kg of plastic on campus.</li>
-                        </ul>
+                        <div class="tide-turners-card-img">
+                            🌊
+                        </div>
+                        <h3 class="text-xl font-semibold text-center" style="color: #f3f4f6; margin-bottom: 0.5rem;">Tide Turners Challenge</h3>
+                        <p class="text-center" style="color: #d1d5db; margin-bottom: 0.5rem;">Plastic Pollution Action | 11th Grade</p>
+                        <p class="text-center text-purple" style="font-size: 0.9rem;">Tap for Photo Album &rarr;</p>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- New Volunteering Details Page -->
+        <!-- New Volunteering Details Page (UPDATED FOR SPORTS) -->
         <div id="volunteering-page" class="page hidden">
             <section class="section-bg">
                 <div class="flex items-center mb-6 border-bottom-purple pb-2">
                     <button onclick="showPage('activities-page')" class="text-purple" style="background: none; border: none; font-size: 2rem; margin-right: 1rem; cursor: pointer; color: #a78bfa; transition: color 0.3s;">
                         &larr;
                     </button>
-                    <h2 class="text-3xl font-bold" style="color: #f3f4f6;">Volunteer Web Developer</h2>
+                    <h2 class="text-3xl font-bold" style="color: #f3f4f6;">Volunteer Sports Organizer</h2>
                 </div>
                 
-                <p style="color: #d1d5db; font-size: 1.125rem; margin-bottom: 1.5rem;">Here you can add more details and photos about your volunteering experience. I have set up a grid for multiple photos below (now using placeholders).</p>
+                <p style="color: #d1d5db; font-size: 1.125rem; margin-bottom: 1.5rem;">Here are more details and photos from my time as a sports volunteer, where I helped manage youth league logistics and fostered a positive environment for the athletes.</p>
 
                 <div class="grid-layout grid-md-2 grid-lg-3" style="margin-bottom: 2rem;">
-                    <!-- Images REPLACED with CSS placeholders -->
-                    <div class="image-placeholder" style="height: 8rem;">Photo 1</div>
-                    <div class="image-placeholder" style="height: 8rem;">Photo 2</div>
-                    <div class="image-placeholder" style="height: 8rem;">Photo 3</div>
-                    <div class="image-placeholder" style="height: 8rem;">Photo 4</div>
+                    <!-- Images REPLACED with CSS placeholders, using green/sporty color -->
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Team Practice Photo</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Game Day Setup Photo</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Award Ceremony Photo</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Logistics Planning</div>
                 </div>
 
-                <p style="color: #d1d5db;" class="leading-relaxed">During my time as a volunteer web developer for a local nonprofit, I was responsible for maintaining and updating their website. This included bug fixes, performance optimizations, and the implementation of new features requested by the team. I gained valuable experience working in a real-world environment and contributed to a cause I'm passionate about.</p>
+                <p style="color: #d1d5db;" class="leading-relaxed">As a volunteer sports organizer for a local youth league, I managed the weekly schedules, coordinated equipment, and assisted coaches during practice sessions and match days. This experience significantly improved my organizational skills, time management, and ability to communicate effectively under pressure, all while promoting fitness and community spirit.</p>
 
             </section>
         </div>
@@ -481,26 +494,31 @@
             </section>
         </div>
 
-        <!-- New Tide Turners Challenge Details Page -->
+        <!-- Tide Turners Challenge Details Page (EXPANDED PHOTO ALBUM) -->
         <div id="tideturners-page" class="page hidden">
             <section class="section-bg">
                 <div class="flex items-center mb-6 border-bottom-purple pb-2">
                     <button onclick="showPage('activities-page')" class="text-purple" style="background: none; border: none; font-size: 2rem; margin-right: 1rem; cursor: pointer; color: #a78bfa; transition: color 0.3s;">
                         &larr;
                     </button>
-                    <h2 class="text-3xl font-bold" style="color: #f3f4f6;">Tide Turners Plastic Challenge</h2>
+                    <h2 class="text-3xl font-bold" style="color: #f3f4f6;">Tide Turners Plastic Challenge Album</h2>
                 </div>
                 
                 <p style="color: #d1d5db; font-size: 1.125rem; margin-bottom: 1.5rem;">The Tide Turners Plastic Challenge is building the capacities of nearly 1 million young people across 50 countries to tackle plastic pollution by raising awareness, fostering community engagement, and advocating for policy changes. I participated in the 11th grade.</p>
 
+                <!-- Additional Photo Slots (More Photos) -->
+                <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 1rem;">My Photo Gallery:</h3>
                 <div class="grid-layout grid-md-2 grid-lg-3" style="margin-bottom: 2rem;">
-                    <!-- Images REPLACED with CSS placeholders -->
-                    <div class="image-placeholder" style="height: 8rem;">Campus Cleanup</div>
-                    <div class="image-placeholder" style="height: 8rem;">Lhakhang Awareness</div>
-                    <div class="image-placeholder" style="height: 8rem;">Teamwork in Action</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4a5568;">Teamwork Photo</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4a5568;">Awareness Poster</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4a5568;">*Empty Photo Slot 3*</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4a5568;">*Empty Photo Slot 4*</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4a5568;">*Empty Photo Slot 5*</div>
+                    <div class="image-placeholder" style="height: 8rem; background-color: #4a5568;">*Empty Photo Slot 6*</div>
                 </div>
 
-                <p style="color: #d1d5db;" class="leading-relaxed">The Tide Tuner plastic challenge helped me contribute to our community and, at the same time, cherish the environment around us. For one of our projects, we went around our school campus cleaning and collected around 8 kg of garbage, which is quite shocking as we considered our school area very clean. There was a lot of plastic around without being disposed of properly. We also went to Ugyen Gura Lhakhang to create awareness for the monks there and also clean the surroundings of the Lhakhang together with the monks. This challenge improved my teamwork skills and creativity.</p>
+
+                <p style="color: #d1d5db;" class="leading-relaxed">The Tide Tuner plastic challenge helped me contribute to our community and, at the same time, cherish the environment around us. This challenge improved my teamwork skills and creativity.</p>
             </section>
         </div>
 
