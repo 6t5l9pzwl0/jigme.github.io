@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
     
-    <!-- ALL STYLES ARE NOW EMBEDDED TO AVOID CDN BLOCKING ISSUES -->
+    <!-- ALL STYLES ARE NOW EMBEDDED -->
     <style>
         /* CSS Reset and Body Styles */
         * {
@@ -130,24 +130,49 @@
             }
         }
 
-        /* Hero Image Placeholder */
-        .hero-image-placeholder {
-            height: 20rem; /* Tall enough for a good banner */
-            background-color: #374151; /* Dark gray */
-            color: #d1d5db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
+        /* Hero Image Style */
+        .hero-image-actual {
+            width: 100%;
+            height: 20rem; /* Fixed height for consistent layout */
+            object-fit: cover;
             border-radius: 0.75rem;
-            border: 4px dashed #a78bfa; /* Purple dashed border */
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
             margin-top: 1rem;
             margin-bottom: 1rem;
+            display: block; /* Ensures it respects margin and width fully */
         }
 
-        /* Image Placeholder styling */
+        /* Carousel Image Style */
+        .carousel-photo {
+            position: absolute; 
+            inset: 0; 
+            transition: opacity 0.5s; 
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem; /* Match container border radius */
+        }
+        .carousel-photo:first-child {
+            opacity: 1; /* Make the first image visible by default */
+        }
+
+        /* NEW: Activity Grid Image Style (used for courses and activities detail pages) */
+        .activity-grid-photo {
+            width: 100%;
+            height: 8rem; /* Default height for the grid */
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            /* Optional: Add transition for hover effect */
+            transition: transform 0.3s ease;
+        }
+        .activity-grid-photo:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+        
+        /* Placeholder styling kept for other sections (now less used) */
         .image-placeholder {
             background-color: #6B46C1; /* Purple background matching the theme */
             color: #E9D8FD; /* Light text */
@@ -161,19 +186,8 @@
             height: 100%;
             min-height: 10rem;
         }
-        
-        /* Custom style for the SVG container to ensure it looks good */
-        .svg-project-icon-container {
-            background-color: #5b21b6; /* darker purple for contrast */
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 10rem;
-            margin-bottom: 1rem;
-        }
 
-        /* Tide Turners Photo Card Style (New) */
+        /* Tide Turners Photo Card Style (retained for the main activity card) */
         .tide-turners-card-img {
             background: linear-gradient(to bottom right, #34d399, #06b6d4); /* Green to Cyan */
             border-radius: 0.5rem;
@@ -184,25 +198,6 @@
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-
-        /* Tide Turners Detail Grid Card Style (New) */
-        .tide-detail-card {
-            background-color: #4b5563; /* slightly lighter gray for detail sub-cards */
-            border-radius: 0.5rem;
-            padding: 1rem;
-            text-align: center;
-            cursor: default;
-        }
-        .tide-detail-card .icon {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-        .tide-detail-card .title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #f3f4f6;
-        }
-
 
         /* Generic Layout Helpers */
         .hidden { display: none !important; }
@@ -231,7 +226,6 @@
             <a href="#" class="text-xl font-bold text-purple">Jigme Seldon</a>
             <div class="nav-links">
                 <a href="#home" onclick="showPage('home-page')">Home</a>
-                <!-- Projects link removed -->
                 <a href="#courses" onclick="showPage('courses-page')">Courses</a>
                 <a href="#activities" onclick="showPage('activities-page')">Activities</a>
                 <a href="#contact">Contact</a>
@@ -241,20 +235,19 @@
 
     <main class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
 
-       <!-- Home Page (Hero Section) -->
+        <!-- Home Page (Hero Section) -->
         <div id="home-page" class="page">
             <section id="hero" class="text-center section-bg" style="background-color: #5b21b6; padding: 3rem 2rem;">
                 <div style="max-width: 48rem; margin: 0 auto;">
                     <!-- Hero Image -->
                     <img 
-                        src="hIMG_1845.png" 
+                        src="https://placehold.co/1200x400/3B82F6/FFFFFF/png?text=Scenic+View+of+Paro,+Bhutan" 
                         onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4B5563/FFFFFF/png?text=Loading+Error';" 
-                        alt=""
+                        alt="Personal Hero Image or Scenic View of Paro, Bhutan"
                         class="hero-image-actual"
                     >
                 </div>
             </section>
-            
             
             <!-- About Me Section -->
             <section id="about" class="section-bg">
@@ -263,16 +256,16 @@
                     <span>About Me</span>
                 </h2>
                 <div class="flex items-center" style="flex-direction: column; gap: 2rem;">
-                    <!-- Profile Image REPLACED with a placeholder image with the required styles -->
+                    <!-- Profile Image -->
                     <img 
-                        src="IMG_20221013_112953.jpg" 
+                        src="https://placehold.co/144x144/a78bfa/ffffff?text=Jigme%27s+Photo" 
                         onerror="this.onerror=null; this.src='https://placehold.co/144x144/a78bfa/ffffff?text=Photo+Error';" 
                         alt="Jigme Seldon Profile Photo" 
                         class="w-36 h-36 rounded-full border-4" 
                         style="border-color: #a78bfa; object-fit: cover; box-shadow: 0 0 0 5px #374151;"
                     >
                     <div style="color: #d1d5db; font-size: 1.125rem;" class="leading-relaxed">
-                        <!-- UPDATED BIO CONTENT - Consolidated to remove line breaks -->
+                        <!-- UPDATED BIO CONTENT -->
                         <p>My name is Jigme Seldon. I am currently studying in the 12th grade at The Royal Academy, Paro, Bhutan.
                         I am passionate about math and physics, always eager to explore new ideas and challenge myself.
                         Beyond academics, I value experiences, friendships, and building a joyful life with my mother and best friends.</p>
@@ -288,18 +281,18 @@
                     <span>My Photos</span>
                 </h2>
                 <div style="position: relative; max-width: 40rem; margin: 0 auto; border-radius: 0.5rem; overflow: hidden;" class="shadow-md">
-                    <!-- Image Container (All images REPLACED with CSS placeholders) -->
-                   <div id="carousel-images" style="position: relative; width: 100%; height: 24rem;">
+                    <!-- Image Container: All are now <img> tags -->
+                    <div id="carousel-images" style="position: relative; width: 100%; height: 24rem;">
                         <!-- You can replace these placeholder URLs with your actual image links! -->
                         <img class="carousel-photo" 
-                            src="IMG_20221120_114923.jpg" 
+                            src="https://placehold.co/800x600/5b21b6/ffffff/png?text=Photo+1+Bhutan+Scenery" 
                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/374151/d1d5db?text=Load+Error';"
-                           
+                            alt="Mountain View in Paro"
                         >
                         <img class="carousel-photo" 
-                            src="nr.png" 
+                            src="https://placehold.co/800x600/8B5CF6/ffffff/png?text=Photo+2+Friends+and+Coffee" 
                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/374151/d1d5db?text=Load+Error';"
-                            alt=""
+                            alt="Coffee Break with Friends"
                         >
                         <img class="carousel-photo" 
                             src="https://placehold.co/800x600/2563EB/ffffff/png?text=Photo+3+Coding+Setup" 
@@ -322,6 +315,7 @@
                             alt="Sunset Skyline"
                         >
                     </div>
+                    
                     <!-- Navigation Buttons (Unicode characters) -->
                     <button id="prevBtn" style="position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.2); padding: 0.5rem; border-radius: 9999px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; color: #a78bfa; font-size: 1.5rem; border: none; cursor: pointer;">
                         &lsaquo;
@@ -356,8 +350,6 @@
             </section>
         </div>
 
-        <!-- Projects Page REMOVED -->
-
         <!-- Courses & Education Page -->
         <div id="courses-page" class="page hidden">
             <section id="courses" class="section-bg">
@@ -366,9 +358,12 @@
                     <span>Courses & Education</span>
                 </h2>
                 <div class="grid-layout grid-md-2">
-                    <!-- Card 1: introAstro Course (UPDATED CONTENT) -->
+                    <!-- Card 1: introAstro Course (Now uses <img>) -->
                     <div class="card-bg" style="cursor: default;">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Intro Astro Course Placeholder</div>
+                        <img class="activity-grid-photo" style="height: 10rem;" 
+                             src="https://placehold.co/400x300/1F2937/a78bfa?text=Astronomy+Course" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/374151/d1d5db?text=Load+Error';"
+                             alt="Intro Astro Course Image">
                         <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">introAstro Course</h3>
                         <p style="color: #d1d5db; margin-bottom: 0.5rem;">12th Grade Participation</p>
                         <p style="color: #d1d5db; margin-bottom: 1rem;">
@@ -392,9 +387,12 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Card 2: Food and Health Course -->
+                    <!-- Card 2: Food and Health Course (Now uses <img>) -->
                     <div class="card-bg" style="cursor: default;">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Food and Health Course Placeholder</div>
+                        <img class="activity-grid-photo" style="height: 10rem;" 
+                             src="https://placehold.co/400x300/1F2937/A7F3D0?text=Food+and+Health" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/374151/d1d5db?text=Load+Error';"
+                             alt="Food and Health Course Image">
                         <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Stanford Introduction to Food and Health</h3>
                         <p style="color: #d1d5db; margin-bottom: 0.5rem;">Online Course | Coursera</p>
                         <ul style="color: #d1d5db; padding-left: 1.5rem; list-style-type: disc;">
@@ -407,7 +405,7 @@
                             <li>Health Informatics</li>
                              <li>Food and Beverage</li>
                         </ul>
-                        <!-- New link for certificate (Icon REPLACED) -->
+                        <!-- New link for certificate -->
                         <div class="flex items-center" style="gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
                             <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="flex items-center text-purple" style="gap: 0.25rem; text-decoration: none;" target="_blank">
                                 <span style="font-size: 1.05rem;">📄</span>
@@ -415,9 +413,12 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Card 3: Kibo Robot Programming Challenge -->
+                    <!-- Card 3: Kibo Robot Programming Challenge (Now uses <img>) -->
                     <div class="card-bg" style="cursor: default;">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Kibo Robot Challenge Placeholder</div>
+                        <img class="activity-grid-photo" style="height: 10rem;" 
+                             src="https://placehold.co/400x300/1F2937/FCD34D?text=Kibo+Robot+Challenge" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/374151/d1d5db?text=Load+Error';"
+                             alt="Kibo Robot Programming Challenge Image">
                         <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Kibo Robot Programming Challenge</h3>
                         <p style="color: #d1d5db; margin-bottom: 0.5rem;">11th Grade Participation</p>
                         <ul style="color: #d1d5db; padding-left: 1.5rem; list-style-type: disc;">
@@ -439,24 +440,17 @@
                     <span>Activities & Volunteering</span>
                 </h2>
                 <div class="grid-layout grid-md-2">
-                    <!-- Volunteer Sports Organizer Card (UPDATED FOR SPORTS) -->
+                    <!-- Volunteer Sports Organizer Card (Now uses <img>) -->
                     <div class="card-bg" onclick="showPage('volunteering-page')">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Community Sports Event</div>
+                        <img class="activity-grid-photo" style="margin-bottom: 1rem; height: 10rem;"
+                             src="https://placehold.co/400x300/4CAF50/ffffff?text=Community+Sports+Event"
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/374151/d1d5db?text=Load+Error';"
+                             alt="Community Sports Event Photo">
                         <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Volunteer Sports Organizer</h3>
                         <p style="color: #d1d5db; margin-bottom: 0.5rem;">Youth Sports League | 2023</p>
                         <ul style="color: #d1d5db; padding-left: 1.5rem; list-style-type: disc;">
                             <li>Organized weekly training sessions and managed logistics for local tournaments.</li>
                             <li>Fostered teamwork and healthy competition among young athletes.</li>
-                        </ul>
-                    </div>
-                    <!-- Chess Club President Card -->
-                    <div class="card-bg" onclick="showPage('chessclub-page')">
-                        <div class="image-placeholder" style="margin-bottom: 1rem; height: 10rem;">Chess Club Leadership</div>
-                        <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 0.5rem;">Chess Club President</h3>
-                        <p style="color: #d1d5db; margin-bottom: 0.5rem;">University of Technology | 2021-2022</p>
-                        <ul style="color: #d1d5db; padding-left: 1.5rem; list-style-type: disc;">
-                            <li>Organized weekly tournaments and led strategy sessions for club members.</li>
-                            <li>Managed club finances and increased membership by 30%.</li>
                         </ul>
                     </div>
                     <!-- Tide Turners Plastic Challenge Card (NOW PHOTO FOCUSSED) -->
@@ -472,7 +466,7 @@
             </section>
         </div>
 
-        <!-- New Volunteering Details Page (UPDATED FOR SPORTS) -->
+        <!-- New Volunteering Details Page (UPDATED WITH IMAGES) -->
         <div id="volunteering-page" class="page hidden">
             <section class="section-bg">
                 <div class="flex items-center mb-6 border-bottom-purple pb-2">
@@ -485,11 +479,11 @@
                 <p style="color: #d1d5db; font-size: 1.125rem; margin-bottom: 1.5rem;">Here are more details and photos from my time as a sports volunteer, where I helped manage youth league logistics and fostered a positive environment for the athletes.</p>
 
                 <div class="grid-layout grid-md-2 grid-lg-3" style="margin-bottom: 2rem;">
-                    <!-- Images REPLACED with CSS placeholders, using green/sporty color -->
-                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Team Practice Photo</div>
-                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Game Day Setup Photo</div>
-                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Award Ceremony Photo</div>
-                    <div class="image-placeholder" style="height: 8rem; background-color: #4CAF50;">Logistics Planning</div>
+                    <!-- Images REPLACED with <img> tags and sporty placeholders -->
+                    <img class="activity-grid-photo" src="https://placehold.co/400x300/4CAF50/ffffff?text=Team+Practice+Action" alt="Team practice in action">
+                    <img class="activity-grid-photo" src="https://placehold.co/400x300/1E40AF/ffffff?text=Game+Day+Setup" alt="Setting up the field on game day">
+                    <img class="activity-grid-photo" src="https://placehold.co/400x300/9333EA/ffffff?text=Award+Ceremony" alt="Giving out awards after the tournament">
+                    <img class="activity-grid-photo" src="https://placehold.co/400x300/F59E0B/ffffff?text=Logistics+Board" alt="Planning logistics and schedules">
                 </div>
 
                 <p style="color: #d1d5db;" class="leading-relaxed">As a volunteer sports organizer for a local youth league, I managed the weekly schedules, coordinated equipment, and assisted coaches during practice sessions and match days. This experience significantly improved my organizational skills, time management, and ability to communicate effectively under pressure, all while promoting fitness and community spirit.</p>
@@ -497,32 +491,7 @@
             </section>
         </div>
 
-        <!-- New Chess Club Details Page -->
-        <div id="chessclub-page" class="page hidden">
-            <section class="section-bg">
-                <div class="flex items-center mb-6 border-bottom-purple pb-2">
-                    <button onclick="showPage('activities-page')" class="text-purple" style="background: none; border: none; font-size: 2rem; margin-right: 1rem; cursor: pointer; color: #a78bfa; transition: color 0.3s;">
-                        &larr;
-                    </button>
-                    <h2 class="text-3xl font-bold" style="color: #f3f4f6;">Chess Club President</h2>
-                </div>
-                
-                <p style="color: #d1d5db; font-size: 1.125rem; margin-bottom: 1.5rem;">Here you can add more details and photos about your experience as a chess club president. I have set up a grid for multiple photos below (now using placeholders).</p>
-
-                <div class="grid-layout grid-md-2 grid-lg-3" style="margin-bottom: 2rem;">
-                    <!-- Images REPLACED with CSS placeholders -->
-                    <div class="image-placeholder" style="height: 8rem;">Photo 1</div>
-                    <div class="image-placeholder" style="height: 8rem;">Photo 2</div>
-                    <div class="image-placeholder" style="height: 8rem;">Photo 3</div>
-                    <div class="image-placeholder" style="height: 8rem;">Photo 4</div>
-                </div>
-
-                <p style="color: #d1d5db;" class="leading-relaxed">As president of the university's chess club, I was responsible for organizing and promoting our weekly tournaments and events. I helped lead strategy sessions and managed the club's administrative duties, which contributed to a significant increase in our membership. It was a great opportunity to improve my leadership skills and foster a love for the game in my peers.</p>
-
-            </section>
-        </div>
-
-        <!-- Tide Turners Challenge Details Page (EXPANDED PHOTO ALBUM) -->
+        <!-- Tide Turners Challenge Details Page (UPDATED WITH IMAGES) -->
         <div id="tideturners-page" class="page hidden">
             <section class="section-bg">
                 <div class="flex items-center mb-6 border-bottom-purple pb-2">
@@ -533,17 +502,6 @@
                 </div>
                 
                 <p style="color: #d1d5db; font-size: 1.125rem; margin-bottom: 1.5rem;">The Tide Turners Plastic Challenge is building the capacities of nearly 1 million young people across 50 countries to tackle plastic pollution by raising awareness, fostering community engagement, and advocating for policy changes. I participated in the 11th grade.</p>
-
-                <!-- My Photo Gallery: Now all <img> tags -->
-                <h3 class="text-xl font-semibold" style="color: #f3f4f6; margin-bottom: 1rem;">My Photo Gallery:</h3>
-                <div class="grid-layout grid-md-2 grid-lg-3" style="margin-bottom: 2rem;">
-                    <img class="activity-grid-photo" src="DSC00301.jpg">
-                    <img class="activity-grid-photo" src="https://placehold.co/400x300/06B6D4/ffffff?text=Awareness+Poster" alt="Poster for plastic awareness">
-                    <img class="activity-grid-photo" src="https://placehold.co/400x300/3B82F6/ffffff?text=Community+Event" alt="Community event photo">
-                    <img class="activity-grid-photo" src="https://placehold.co/400x300/4F46E5/ffffff?text=Sorting+Recycling" alt="Sorting plastic for recycling">
-                    <img class="activity-grid-photo" src="https://placehold.co/400x300/5B21B6/ffffff?text=Group+Photo" alt="Group photo of volunteers">
-                    <img class="activity-grid-photo" src="https://placehold.co/400x300/EC4899/ffffff?text=Environmental+Shot" alt="Photo of the cleaned area">
-                </div>
 
                 <p style="color: #d1d5db;" class="leading-relaxed">The Tide Tuner plastic challenge helped me contribute to our community and, at the same time, cherish the environment around us. This challenge improved my teamwork skills and creativity.</p>
             </section>
@@ -577,13 +535,14 @@
             // Ensure the initial page is visible
             showPage('home-page');
 
-            const carouselImages = document.querySelectorAll('#carousel-images div.image-placeholder');
+            // TARGET .carousel-photo for home page carousel
+            const carouselImages = document.querySelectorAll('#carousel-images img.carousel-photo');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const carouselDotsContainer = document.getElementById('carousel-dots');
             let currentImageIndex = 0;
 
-            // Create dots for each placeholder
+            // Create dots for each photo
             carouselImages.forEach((_, index) => {
                 const dot = document.createElement('button');
                 dot.style.cssText = 'width: 0.75rem; height: 0.75rem; border-radius: 9999px; background-color: #9ca3af; transition: background-color 0.3s; border: none; cursor: pointer;';
@@ -606,7 +565,7 @@
             const carouselDots = document.querySelectorAll('#carousel-dots button');
 
             function showImage(index) {
-                // Hide all placeholders and deactivate dots
+                // Hide all photos and deactivate dots
                 carouselImages.forEach(img => {
                     img.style.opacity = '0';
                 });
@@ -615,7 +574,7 @@
                     dot.onmouseout = () => dot.style.backgroundColor = '#9ca3af'; // Reset mouseout handler
                 });
 
-                // Show the selected placeholder and activate the corresponding dot
+                // Show the selected photo and activate the corresponding dot
                 if (carouselImages[index]) {
                     carouselImages[index].style.opacity = '1';
                     carouselDots[index].style.backgroundColor = '#a78bfa';
